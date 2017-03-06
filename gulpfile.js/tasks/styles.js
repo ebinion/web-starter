@@ -18,6 +18,8 @@ const stylesTask = (callback) => {
   return gulp.src(paths.src)
     .pipe(sass(config.tasks.styles.settings))
     .on('error', handleErrors)
+    .pipe(autoprefixer(config.tasks.styles.autoprefixer))
+    .on('error', handleErrors)
     .pipe(gulp.dest(paths.build))
 }
 
