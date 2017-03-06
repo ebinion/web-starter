@@ -3,10 +3,10 @@ const autoprefixer = require('gulp-autoprefixer')
 const config = require('../config')
 const gulp = require('gulp')
 const handleErrors = require('../lib/handle-errors')
-const notify = require('gulp-notify')
+const gulpif = require('gulp-if')
 const path = require('path')
 const sass = require('gulp-sass')
-const sequence = require('gulp-sequence')
+const sourcemaps = require('gulp-sourcemaps')
 
 // Paths
 const paths = {
@@ -16,9 +16,13 @@ const paths = {
 
 const stylesTask = (callback) => {
   return gulp.src(paths.src)
+    .pipe(gulpif(!global.production, sourcemaps.init()))
+    .on('error', handleErrors)
     .pipe(sass(config.tasks.styles.settings))
     .on('error', handleErrors)
     .pipe(autoprefixer(config.tasks.styles.autoprefixer))
+    .on('error', handleErrors)
+    .pipe(gulpif(!global.production, sourcemaps.write()))
     .on('error', handleErrors)
     .pipe(gulp.dest(paths.build))
 }
