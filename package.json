@@ -13,7 +13,10 @@
     "gulp-sass": "^3.1.0",
     "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^2.4.1",
-    "gulp-watch": "^4.3.11"
+    "gulp-watch": "^4.3.11",
+    "kss": "^3.0.0-beta.18",
+    "path": "^0.12.7",
+    "require-dir": "^0.3.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
