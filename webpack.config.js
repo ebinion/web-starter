@@ -32,7 +32,13 @@ const config = {
         use: extractSass.extract({
           use: [
             {
-              loader: 'css-loader'
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader'
             },
             {
               loader: 'sass-loader'
@@ -50,6 +56,9 @@ const config = {
     extractSass,
     new HTMLWebpackPlugin({
       template: './source/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
 }
