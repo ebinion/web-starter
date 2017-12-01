@@ -4,33 +4,48 @@
   "description": "Starter repo for web projects",
   "main": "index.js",
   "dependencies": {
+    "lodash": "^4.17.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "reset-css": "^2.2.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-if": "^2.0.2",
-    "gulp-notify": "^3.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sequence": "^0.4.6",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-watch": "^4.3.11",
-    "kss": "^3.0.0-beta.18",
-    "path": "^0.12.7",
-    "require-dir": "^0.3.1"
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.9",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "svg-sprite-loader": "^3.4.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.5"
   },
+  "browserslist": [
+    "> 1%",
+    "last 3 versions"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/.bin/webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production rm -R ./build && node_modules/.bin/webpack -p",
+    "deploy": "yarn build && git subtree push --prefix build origin gh-pages"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ebinion/web-starter.git"
-  },
+  "repository": "git+https://github.com/ebinion/web-starter.git",
   "author": "Ezekiel Binion",
-  "license": "ISC",
+  "license": "none",
   "bugs": {
     "url": "https://github.com/ebinion/web-starter/issues"
   },
-  "homepage": "https://github.com/ebinion/web-starter#readme"
+  "homepage": "https://github.com/ebinion/web-starter#readme",
+  "private": true
 }
