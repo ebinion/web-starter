@@ -46,6 +46,10 @@ const config = {
           ],
           fallback: 'style-loader'
         })
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader'
       }
     ]
   },
